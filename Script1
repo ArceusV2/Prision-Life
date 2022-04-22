@@ -1,0 +1,65 @@
+local DiscordLib = loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
+local win = DiscordLib:Window("Prision Life")
+local serv = win:Server("Arceus V", "")
+
+local Main = serv:Channel("Main")
+local Tp = serv:Channel("Teleport")
+local Players = serv:Channel("Player")
+
+local drop =
+    Main:Dropdown(
+    "Get Gun",
+    {"M9", "Remington 870", "AK-47"},
+    function(v)
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+    end
+)
+
+local drop =
+    Main:Dropdown(
+    "Guns Mod",
+    {"M9", "Remington 870", "AK-47"},
+    function(v)
+        local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Backpack[v].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Character[v].GunStates)
+        end
+        if module ~= nil then
+            module["MaxAmmo"] = math.huge
+            module["CurrentAmmo"] = math.huge
+            module["StoredAmmo"] = math.huge
+            module["FireRate"] = 0.000001
+            module["Spread"] = 0
+            module["Range"] = math.huge
+            module["Bullets"] = 10
+            module["ReloadTime"] = 0.000001
+            module["AutoFire"] = true
+        end
+    end
+)
+
+local sldr =
+    Players:Slider(
+    "Walkspeed",
+    16,
+    250,
+    0,
+    function(t)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = t
+    end
+)
+
+local sldr =
+    Players:Slider(
+    "JumpPower",
+    50,
+    250,
+    0,
+    function(t)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = t
+    end
+)
