@@ -30,13 +30,13 @@ local drop =
         end
         if module ~= nil then
             module["MaxAmmo"] = math.huge
-            module["CurrentAmmo"] = math.huge
-            module["StoredAmmo"] = math.huge
-            module["FireRate"] = 0.000001
+            module["CurrentAmmo"] = 9999999
+            module["StoredAmmo"] = 9999999
+            module["FireRate"] = 0.002
             module["Spread"] = 0
-            module["Range"] = math.huge
-            module["Bullets"] = 10
-            module["ReloadTime"] = 0.000001
+            module["Range"] = 50
+            module["Bullets"] = 3
+            module["ReloadTime"] = 0.02
             module["AutoFire"] = true
         end
     end
