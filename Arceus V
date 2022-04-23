@@ -294,5 +294,5 @@ end)
 Player:addSlider("Jumps",1,500,function(value)
    game.Players.LocalPlayer.multiJumpCount.Value = value
 end)
-   end
+
 end
