@@ -1,4 +1,4 @@
-if Game.PlaceId == 155615604 then
+if game.PlaceId == 155615604 then
 local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
  
 local UI = GUI:CreateWindow("Prision Life l Arceus V","Discord.gg/Arceus-V")
@@ -42,7 +42,7 @@ Player:addSlider("JumpPower",50,300,function(value)
     print(value)
 game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
 end)
-   elseif Game.PlaceId == 3956818381 then
+   elseif game.PlaceId == 3956818381 then
       local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
  
 local UI = GUI:CreateWindow("Ninja Legends l Arceus V","Discord.gg/Arceus-V")
