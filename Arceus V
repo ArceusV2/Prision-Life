@@ -1,5 +1,3 @@
-local PrisionLife = 155615604
-
-if Game.PlaceId == PrisionLife then
+if Game.PlaceId == 155615604 then
    loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusV2/Prision-Life/main/Prision%20Life%20Code"))()
 end
