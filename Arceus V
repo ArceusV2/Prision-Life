@@ -1,3 +1,298 @@
 if Game.PlaceId == 155615604 then
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/ArceusV2/Prision-Life/main/Prision%20Life%20Code"))()
+local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
+ 
+local UI = GUI:CreateWindow("Prision Life l Arceus V","Discord.gg/Arceus-V")
+ 
+local Home = UI:addPage("Home",1,true,6)
+local Player = UI:addPage("Player",1,true,6)
+ 
+Home:addDropdown("Get Guns",{"M9", "Remington 870", "AK-47"},1,function(v)
+  local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+end)
+ 
+Home:addDropdown("Gun Mods",{"M9", "Remington 870", "AK-47"},1,function(v)
+      local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Backpack[v].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Character[v].GunStates)
+        end
+        if module ~= nil then
+            module["MaxAmmo"] = math.huge
+            module["CurrentAmmo"] = math.huge
+            module["StoredAmmo"] = math.huge
+            module["FireRate"] = 0.2
+            module["Spread"] = 0.2
+            module["Range"] = 30
+            module["Bullets"] = 2
+            module["ReloadTime"] = 0.02
+            module["AutoFire"] = true
+        end
+end)
+ 
+ 
+Player:addSlider("Walkspeed",16,250,function(value)
+    print(value)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+ 
+Player:addSlider("JumpPower",50,300,function(value)
+    print(value)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+end)
+   elseif Game.PlaceId == 3956818381 then
+      local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
+ 
+local UI = GUI:CreateWindow("Ninja Legends l Arceus V","Discord.gg/Arceus-V")
+ 
+local Home = UI:addPage("Home",1,true,6)
+local Trolling = UI:addPage("Trolling",1,true,6)
+local Tp = UI:addPage("Tp",1,true,6)
+local Player = UI:addPage("Player",1,true,6)
+local Settings = UI:addPage("Settings",1,true,6)
+
+
+Home:addToggle("Auto-Swing",function(v)
+    getgenv().autoswing = v
+        while true do
+            if not getgenv().autoswing then return end
+            for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if v:FindFirstChild("ninjitsuGain") then
+                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                    break
+                end
+            end
+            local A_1 = "swingKatana"
+            local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+            Event:FireServer(A_1)
+            wait(0.1)
+        end
+end)
+
+Home:addToggle("Auto-Sell",function(v)
+   getgenv().autosell = v
+        while true do
+        if getgenv().autoswing == false then return end
+            game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            wait(0.1)
+            game:GetService("Workspace").sellAreaCircles["sellAreaCircle16"].circleInner.CFrame = CFrame.new(0,0,0)
+            wait(0.1)
+        end
+end)
+
+Home:addToggle("Auto-Buy-Swords",function(v)
+   getgenv().buyswords = v
+        while true do
+            if not getgenv().buyswords then return end
+            local A_1 = "buyAllSwords"
+            local A_2 = "Inner Peace Island"
+            local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+            Event:FireServer(A_1, A_2)
+            wait(0.5)
+        end
+end)
+
+Home:addToggle("Auto-Buy-Belts",function(v)
+      getgenv().buybelts = v
+        while true do
+            if not getgenv().buybelts then return end
+            local A_1 = "buyAllBelts"
+            local A_2 = "Inner Peace Island"
+            local Event = game:GetService("Players").LocalPlayer.ninjaEvent
+            Event:FireServer(A_1, A_2)
+            wait(0.5)
+        end
+end)
+
+Home:addToggle("Auto-Buy-Rank",function(v)
+   _G.sword = v
+while _G.sword do
+wait()
+local oh1 = "buyRank"
+local oh2 = game:GetService("ReplicatedStorage").Ranks.Ground:GetChildren()
+for i = 1,#oh2 do
+game:GetService("Players").LocalPlayer.ninjaEvent:FireServer(oh1, oh2[i].Name)
+end
+end
+end)
+
+Home:addButton("Get-All-Gamepasses",function()
+    local gamepasses = {7235693}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "Faster Sword"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7235671}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "x2 Ninjitsu"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7235680}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "x2 Speed"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7235685}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "x2 Damage"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7235688}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "x2 Health"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7235698}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "Infinite Ninjitsu"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7361190}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "+20 Capacity"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7361206}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "+60 Capacity"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7361232}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "+4 Pet Slots"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7442984}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "Infinite Ammo"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7504500}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "+100 Capacity"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7557569}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "+200 Capacity"
+    OwO.Value = tostring(v)
+    end
+    end
+    local gamepasses = {7557657}
+    for _,v in next, gamepasses do
+    if not game.Players.LocalPlayer:FindFirstChild(tostring(v)) then
+    local OwO = Instance.new("BoolValue", game.Players.LocalPlayer.ownedGamepasses)
+    OwO.Name = "+2 Pet Slots"
+    OwO.Value = tostring(v)
+    end
+    end
+    
+end)
+
+-- TROLLING
+
+Trolling:addButton("Kill-All",function()
+   for i, Players in pairs(game.Players:GetPlayers()) do
+    if Players.Name ~= game.Players.LocalPlayer then
+        Players.Character.Humanoid.Health = 0
+    end
+end
+end)
+
+Trolling:addLabel("Can Crash Your Game!","")
+
+Trolling:addToggle("loop-Kill-All",function(v)
+    game.StarterGui:SetCore("SendNotification",{
+        Title = "Loop-kill";
+        Text = "loopkilling";
+    })
+ getgenv().loopkill = v
+        while true do
+   for i, Players in pairs(game.Players:GetPlayers()) do
+    if Players.Name ~= game.Players.LocalPlayer then
+        Players.Character.Humanoid.Health = 0
+       end
+    end
+  end
+end)
+
+
+-- TP
+
+
+Tp:addDropdown("Tp",{"Enchanted Island","Astral Island","Mystical Island","Space Island","Tundra Island","Eternal Island","Sandstorm","Thunderstorm","Ancient Inferno Island","Midnight Shadow Island", "Mythical Souls Island","Winter Wonder Island","Golden Master Island", "Dragon Legend Island", "Cybernetic Legends Island","Skystorm Ultraus Island", "Choas Legends Island","Soul Fusion Island","Dark Elements Island","Inner Peace Island","Blazing Vortex Island"},16,function(v)
+    game.StarterGui:SetCore("SendNotification",{
+        Title = "Teleported To";
+        Text = v;
+    })
+       local A_1 = game:GetService("Workspace").islandUnlockParts:FindFirstChild(v)
+       local Player = game.Players.LocalPlayer.Character
+       Player.HumanoidRootPart.CFrame = A_1.CFrame
+end)
+
+Tp:addButton("Unlock All Islands",function()
+    game.StarterGui:SetCore("SendNotification",{
+        Title = "Islands";
+        Text = "Unlocked All";
+    })
+    local oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    for _,v in pairs(game:GetService("Workspace").islandUnlockParts:GetChildren()) do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+        wait(0.1)
+    end
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldcframe
+end)
+
+-- Player
+
+Player:addSlider("Walkspeed",18,300,function(value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+
+Player:addSlider("Jumppower",50,500,function(value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+end)
+
+Player:addSlider("Jumps",1,500,function(value)
+   game.Players.LocalPlayer.multiJumpCount.Value = value
+end)
+   end
 end
